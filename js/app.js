@@ -8,6 +8,12 @@ const getWeather = () => {
     searchLoadin('content', 'none');
     searchLoadin('loader', 'block');
     const city = document.getElementById('city-input');
+    if (city.value === '') {
+        console.log('hello');
+        searchLoadin('content', 'block');
+        searchLoadin('loader', 'none');
+        return;
+    }
     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city.value}&appid=405b86887d916f5ece71ad66adf9d2ef&units=metric`)
         .then(res => res.json())
         .then(data => showData(data));
