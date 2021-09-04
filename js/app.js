@@ -21,6 +21,12 @@ const setText = (id, text='No result found') => {
 
 // show data to UI
 const showData = weather => {
+    if (weather.cod === '404') {
+        setText('city', "Your city name is not valid");
+        searchLoadin('content', 'block');
+        searchLoadin('loader', 'none');
+        return;
+    }
     document.getElementById('icon').setAttribute('src', `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`);
     setText('city', weather.name);
     setText('temp', weather.main.temp);
