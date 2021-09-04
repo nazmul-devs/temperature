@@ -9,7 +9,6 @@ const getWeather = () => {
     searchLoadin('loader', 'block');
     const city = document.getElementById('city-input');
     if (city.value === '') {
-        console.log('hello');
         searchLoadin('content', 'block');
         searchLoadin('loader', 'none');
         return;
